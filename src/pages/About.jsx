@@ -26,7 +26,7 @@ const About = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="min-h-screen py-20 px-6 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white flex flex-col-reverse md:flex-col-reverse lg:flex-row items-center justify-between gap-10"
+      className="min-h-screen py-20 px-6 bg-[#1E293B] text-white flex flex-col-reverse md:flex-col-reverse lg:flex-row items-center justify-between gap-10"
       id="about"
     >
       <div className="max-w-2xl">
@@ -35,16 +35,16 @@ const About = () => {
           className="text-4xl md:text-5xl font-extrabold text-orange-400 mb-6 relative inline-block"
         >
           <span className="relative z-10">About Ultras Malappuram FC</span>
-          <span className="absolute left-0 -bottom-1 w-full h-1 bg-orange-400 blur-md animate-pulse"></span>
+          <span className=" left-0 -bottom-1 w-full h-1 bg-orange-400  animate-pulse"></span>
         </motion.h2>
 
         <motion.p
           variants={childVariants}
           className="text-lg lg:text-xl leading-relaxed text-gray-300 mb-5 text-justify"
         >
-          <strong className="text-white">Ultras Malappuram FC</strong> isn’t
-          just a football club — it’s a{" "}
-          <span className="text-orange-300 font-semibold underline underline-offset-4">
+          <strong className="text-white">Ultras Malappuram</strong> isn’t just a
+          football club — it’s a{" "}
+          <span className="text-orange-300 font-semibold  underline-offset-4">
             movement
           </span>{" "}
           born from the heart of Kerala’s most football-passionate district.
