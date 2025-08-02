@@ -26,7 +26,7 @@ const About = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="min-h-screen py-20 px-6 bg-[#1E293B] text-white flex flex-col-reverse md:flex-col-reverse lg:flex-row items-center justify-between gap-10"
+      className="min-h-screen py-20 px-6  text-white flex flex-col-reverse md:flex-col-reverse lg:flex-row items-center justify-between gap-10"
       id="about"
     >
       <div className="max-w-2xl">

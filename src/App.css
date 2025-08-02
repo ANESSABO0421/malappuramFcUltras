@@ -1,1 +1,18 @@
-  
+/* Home.css */
+
+@keyframes scrollHorizontal {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -100vw; /* scroll horizontally */
+  }
+}
+
+.bg-scroll {
+  background-image: url("/images/stadium2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation:  50s linear infinite;
+}

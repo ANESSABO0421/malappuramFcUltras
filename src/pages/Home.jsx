@@ -1,21 +1,30 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import Hero from './Hero'
-import Contact from './Contact'
-import Gallery from './Gallery'
-import About from './About'
+
+import React from "react";
+import Navbar from "../components/Navbar";
+import Hero from "./Hero";
+import Contact from "./Contact";
+import Gallery from "./Gallery";
+import About from "./About";
+import "../App.css"; // make sure your CSS is imported
 
 const Home = () => {
   return (
-    <div className='bg-[#1E293B]'>
-        <Navbar/>
-        <Hero/>
-        <About/>
-        {/* <Contact/> */}
-        <Gallery/>
+    <div className="relative">
+      {/* Scrolling Background */}
+      <div className="fixed top-0 left-0 w-full h-full z-0 bg-scroll">
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
 
+      {/* Main Content */}
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <About />
+        <Gallery />
+        {/* <Contact /> */}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;  
