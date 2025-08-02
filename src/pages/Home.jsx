@@ -7,11 +7,11 @@ import About from './About'
 
 const Home = () => {
   return (
-    <div>
+    <div className='bg-[#1E293B]'>
         <Navbar/>
         <Hero/>
         <About/>
-        <Contact/>
+        {/* <Contact/> */}
         <Gallery/>
 
     </div>
