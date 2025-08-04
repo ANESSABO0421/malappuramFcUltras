@@ -25,7 +25,6 @@ const Hero = () => {
         className="relative w-full h-[600px] sm:h-screen overflow-hidden"
         id="hero"
       >
-        {/* 🌄 Background Images with Zoom-Parallax Effect */}
         <AnimatePresence mode="wait">
           <motion.img
             key={index}
