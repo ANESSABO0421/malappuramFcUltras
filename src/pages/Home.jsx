@@ -6,6 +6,7 @@ import Contact from "./Contact";
 import Gallery from "./Gallery";
 import About from "./About";
 import "../App.css"; // make sure your CSS is imported
+import VideoGallery from "./VideoGallery";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
         <About />
         <Gallery />
         {/* <Contact /> */}
+        <VideoGallery/>
       </div>
     </div>
   );
