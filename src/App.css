@@ -10,7 +10,7 @@
 }
 
 .bg-scroll {
-  background-color: #000; /* fallback */
+  background-color: #000; 
   background-image: url("/images/stadium2.jpg");
   background-repeat: no-repeat;
   background-size: cover;

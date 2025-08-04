@@ -37,10 +37,10 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed bg-[#1A1F3C] z-50 h-25 w-full flex justify-between transition-all duration-300 ease-out ">
+      <div className="fixed bg-[#1A1F3C]/80 backdrop-blur-xl z-50 h-25 w-full flex justify-between transition-all duration-300 ease-out ">
         <div className="flex items-center justify-center sm:px-2 md:px-3 lg:px-4 py-3">
           <motion.img
-            src="/ultras.jpeg"
+            src="/ultras2.png"
             alt=""
             className="h-20 px-2 cursor-pointer"
             onClick={() => navigate("/")}
@@ -108,7 +108,7 @@ const Navbar = () => {
         )}
 
         <div
-          className={`fixed bg-[#131F47] h-[calc(100vh-100px)] w-full top-[100px] z-50 right-0 flex items-center justify-center flex-col gap-5 text-3xl transition-transform ${
+          className={`fixed bg-[#1A1F3C] backdrop-blur-sm h-[calc(100vh-100px)] w-full top-[100px] z-50 right-0 flex items-center justify-center flex-col gap-5 text-3xl transition-transform ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
