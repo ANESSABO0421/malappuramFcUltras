@@ -22,7 +22,7 @@ const Gallery = () => {
           The Roar Behind the Glory
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 p-4 text-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 p-4 text-white">
           {images.map((img, i) => (
             <motion.div
               key={i}
