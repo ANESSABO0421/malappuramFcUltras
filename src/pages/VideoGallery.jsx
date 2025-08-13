@@ -24,7 +24,7 @@ const VideoGallery = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center text-5xl md:text-7xl font-extrabold mb-20 tracking-widest uppercase bg-gradient-to-r from-orange-500 via-pink-500 to-red-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,100,0,0.8)]"
+        className="text-center text-5xl md:text-7xl font-extrabold mb-20 tracking-widest uppercase bg-gradient-to-r from-orange-500 via-orange-700 to-orange-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,100,0,0.8)]"
       >
         🎥 Video Gallery
       </motion.h1>
@@ -61,11 +61,11 @@ const VideoGallery = () => {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative bg-gradient-to-r from-orange-500 via-pink-500 to-red-500 px-6 py-2 rounded-full text-sm font-bold shadow-[0_0_20px_rgba(255,100,0,0.6)] overflow-hidden"
+                className="relative bg-gradient-to-r from-orange-500 via-orange-700 to-orange-500 px-6 py-2 rounded-full text-sm font-bold shadow-[0_0_20px_rgba(255,100,0,0.6)] overflow-hidden"
               >
                 <span className="relative z-10">Watch</span>
                 {/* Pulse animation */}
-                <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-orange-500 animate-pulse opacity-50"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-700 animate-pulse opacity-50"></span>
               </motion.button>
             </div>
           </motion.div>
