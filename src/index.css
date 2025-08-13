@@ -3,6 +3,9 @@
 html{
     scroll-behavior: smooth;
 }
+/* body{
+  cursor: none;
+} */
 
 /* Grid container */
 .video-grid {

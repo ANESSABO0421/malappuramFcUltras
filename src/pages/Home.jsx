@@ -7,6 +7,7 @@ import Gallery from "./Gallery";
 import About from "./About";
 import "../App.css"; // make sure your CSS is imported
 import VideoGallery from "./VideoGallery";
+import CustomCursor from "../CustomCursor";
 
 const Home = () => {
   return (
@@ -22,8 +23,9 @@ const Home = () => {
         <Hero />
         <About />
         <Gallery />
+        {/* <CustomCursor/> */}
         {/* <Contact /> */}
-        <VideoGallery/>
+        {/* <VideoGallery/> */}
       </div>
     </div>
   );
