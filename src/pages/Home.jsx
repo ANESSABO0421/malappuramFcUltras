@@ -25,7 +25,7 @@ const Home = () => {
         <Gallery />
         {/* <CustomCursor/> */}
         {/* <Contact /> */}
-        {/* <VideoGallery/> */}
+        <VideoGallery/>
       </div>
     </div>
   );
