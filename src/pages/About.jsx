@@ -51,6 +51,7 @@ const About = () => {
           every day.
         </p>
 
+
         <p className="text-lg lg:text-xl leading-relaxed text-gray-300 mb-5 text-justify">
           Our legacy is rooted in the culture — where{" "}
           <span className="text-orange-200 italic">
