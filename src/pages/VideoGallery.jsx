@@ -53,6 +53,7 @@ const VideoGallery = () => {
                 allowFullScreen
                 className="w-full aspect-[16/9] rounded-t-3xl"
               ></motion.iframe>
+              
             </div>
 
             {/* Footer */}
