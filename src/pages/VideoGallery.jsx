@@ -18,7 +18,9 @@ const VideoGallery = () => {
         <div className="w-full h-full bg-gradient-to-br  opacity-90" />
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
       </div>
+ 
 
+ 
       {/* Title */}
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
@@ -53,7 +55,7 @@ const VideoGallery = () => {
                 allowFullScreen
                 className="w-full aspect-[16/9] rounded-t-3xl"
               ></motion.iframe>
-              
+
             </div>
 
             {/* Footer */}
