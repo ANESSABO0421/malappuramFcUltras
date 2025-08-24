@@ -16,8 +16,8 @@ const Gallery = () => {
   return (
     <section className="relative py-10 min-h-screen w-full px-4">
       {/* Background overlay */}
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#0d1117] via-[#121C26]/90 to-[#0d1117] backdrop-blur-xl z-0" />
-
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-br z-0" />
+      {/* from-[#0d1117] via-[#121C26]/90 to-[#0d1117] backdrop-blur-xl background if need to apply on top of this element */}
       {/* Title */}
       <div className="relative z-10">
         <motion.h1

@@ -48,8 +48,15 @@ const VideoItem = ({ id, index }) => {
         !loaded && (
           <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <svg width={60} height={60} viewBox="0 0 100 100" fill="none">
-              <circle cx="50" cy="50" r="46" fill="rgba(0,0,0,0.6)" stroke="#FFA500" strokeWidth="6"/>
-              <polygon points="40,32 72,50 40,68" fill="#fff"/>
+              <circle
+                cx="50"
+                cy="50"
+                r="46"
+                fill="rgba(0,0,0,0.6)"
+                stroke="#FFA500"
+                strokeWidth="6"
+              />
+              <polygon points="40,32 72,50 40,68" fill="#fff" />
             </svg>
           </span>
         )
@@ -62,7 +69,8 @@ const VideoGallery = () => (
   <div className="relative min-h-screen py-16 px-6 text-white overflow-hidden">
     {/* Background */}
     <div className="absolute inset-0 -z-10">
-      <div className="w-full h-full bg-gradient-to-br from-black via-gray-900 to-black opacity-95" />
+      <div className="w-full h-full bg-gradient-to-br  opacity-95" />
+      {/* from-black via-gray-900 to-black  if need add*/}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 mix-blend-overlay"></div>
     </div>
 
