@@ -14,7 +14,7 @@ const Gallery = () => {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section className="relative py-10 min-h-screen w-full px-4">
+    <section className="relative py-10 min-h-screen w-full px-4" id="Gallery">
       {/* Background overlay */}
       <div className="absolute inset-0 w-full h-full bg-gradient-to-br z-0" />
       {/* from-[#0d1117] via-[#121C26]/90 to-[#0d1117] backdrop-blur-xl background if need to apply on top of this element */}

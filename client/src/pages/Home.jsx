@@ -1,13 +1,11 @@
-
 import React from "react";
 import Navbar from "../components/Navbar";
 import Hero from "./Hero";
-import Contact from "./Contact";
 import Gallery from "./Gallery";
 import About from "./About";
 import "../App.css"; // make sure your CSS is imported
 import VideoGallery from "./VideoGallery";
-import CustomCursor from "../CustomCursor";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -23,9 +21,8 @@ const Home = () => {
         <Hero />
         <About />
         <Gallery />
-        {/* <CustomCursor/> */}
-        {/* <Contact /> */}
         <VideoGallery/>
+        <Footer/>
       </div>
     </div>
   );
