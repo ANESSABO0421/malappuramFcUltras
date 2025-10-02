@@ -52,29 +52,39 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex justify-center md:justify-start flex-wrap gap-6 mt-8">
-            {["Home", "Players", "Matches", "Gallery", "Contact"].map((link) => (
-              <motion.a
-                key={link}
-                href={`#${link.toLowerCase()}`}
-                className="text-gray-300 hover:text-orange-500 text-sm uppercase tracking-wider"
-                whileHover={{ scale: 1.1 }}
-              >
-                {link}
-              </motion.a>
-            ))}
+            {["Home", "Players", "Matches", "Gallery", "Contact"].map(
+              (link) => (
+                <motion.a
+                  key={link}
+                  href={`#${link.toLowerCase()}`}
+                  className="text-gray-300 hover:text-orange-500 text-sm uppercase tracking-wider"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {link}
+                </motion.a>
+              )
+            )}
           </div>
 
           {/* Social Icons */}
           <div className="flex justify-center md:justify-start gap-6 mt-8">
             {[
-              { icon: <FaInstagram />, color: "text-pink-500" },
-              { icon: <FaYoutube />, color: "text-red-500" },
-              { icon: <FaTwitter />, color: "text-sky-400" },
-              { icon: <FaFacebookF />, color: "text-blue-500" },
+              {
+                icon: <FaInstagram />,
+                color: "text-pink-500",
+                link: "https://www.instagram.com/ultras.malappuram/",
+              },
+              {
+                icon: <FaYoutube />,
+                color: "text-red-500",
+                link: "https://www.youtube.com/@ultrasmalappuram",
+              },
             ].map((social, i) => (
               <motion.a
                 key={i}
-                href="#"
+                href={social.link}
+                target="_blank" // opens in new tab
+                rel="noopener noreferrer" // security best practice
                 className={`text-2xl ${social.color}`}
                 whileHover={{ scale: 1.3, rotate: 10 }}
                 transition={{ type: "spring", stiffness: 200 }}
