@@ -8,6 +8,7 @@ import VideoGallery from "./VideoGallery";
 import Footer from "./Footer";
 import Standings from "../components/Standing";
 import LastMalappuramMatch from "./LastMalappuramMatch";
+import Sponsors from "../components/Sponsors";
 
 const Home = () => {
   return (
@@ -26,6 +27,7 @@ const Home = () => {
         <LastMalappuramMatch/>
         <Gallery />
         <VideoGallery/>
+        <Sponsors/>
         <Footer/>
       </div>
     </div>
