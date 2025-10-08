@@ -6,6 +6,8 @@ import About from "./About";
 import "../App.css"; // make sure your CSS is imported
 import VideoGallery from "./VideoGallery";
 import Footer from "./Footer";
+import Standings from "../components/Standing";
+import LastMalappuramMatch from "./LastMalappuramMatch";
 
 const Home = () => {
   return (
@@ -20,6 +22,8 @@ const Home = () => {
         <Navbar />
         <Hero />
         <About />
+        <Standings/>
+        <LastMalappuramMatch/>
         <Gallery />
         <VideoGallery/>
         <Footer/>
