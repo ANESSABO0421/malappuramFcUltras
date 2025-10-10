@@ -8,7 +8,7 @@ export default function Standings() {
 
   const fetchStandings = () => {
     setLoading(true);
-    fetch("http://localhost:5000/api/standings")
+    fetch("https://backendmfcultras.onrender.com/api/standings")
       .then((res) => res.json())
       .then((data) => {
         setTeams(data);
