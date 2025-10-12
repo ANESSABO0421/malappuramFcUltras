@@ -1,26 +1,64 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-export default function Standings() {
+export default function MyStandings() {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [lastUpdated, setLastUpdated] = useState(null);
 
-  const fetchStandings = () => {
+  const fetchStandings = async () => {
     setLoading(true);
-    fetch("https://backendmfcultras.onrender.com/api/standings")
-      .then((res) => res.json())
-      .then((data) => {
-        setTeams(data);
-        setLoading(false);
-        setLastUpdated(new Date().toLocaleTimeString());
-      })
-      .catch((err) => console.error("Error fetching data:", err));
+    try {
+      const res = await fetch("http://localhost:5000/api/standings");
+      const data = await res.json();
+      console.log(data)
+
+      // Ensure correct format
+      if (!data || !Array.isArray(data.standings)) {
+        throw new Error("Invalid data format");
+      }
+
+      // Transform API data to match frontend structure
+      const formatted = data.standings.map((team) => ({
+        name: team.Clubs,
+        logo: team.Club_logo,
+        shortName: team.short_name,
+        played: team.ALL.Played,
+        won: team.ALL.Won,
+        draw: team.ALL.Draw,
+        lost: team.ALL.Lost,
+        gf: team.ALL.SF, // Goals For
+        ga: team.ALL.SG, // Goals Against
+        gd: team.ALL.GD, // Goal Difference
+        points: team.ALL.Points,
+        last5: team.ALL.Last5,
+      }));
+
+      // 🧮 Sort by Points → GD → GF (descending)
+      const sorted = formatted.sort((a, b) => {
+        if (b.points !== a.points) return b.points - a.points;
+        if (b.gd !== a.gd) return b.gd - a.gd;
+        return b.gf - a.gf;
+      });
+
+      // Assign proper positions after sorting
+      const ranked = sorted.map((team, index) => ({
+        ...team,
+        position: index + 1,
+      }));
+
+      setTeams(ranked);
+      setLastUpdated(new Date().toLocaleTimeString());
+    } catch (err) {
+      console.error("Error fetching data:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
     fetchStandings();
-    const interval = setInterval(fetchStandings, 60000);
+    const interval = setInterval(fetchStandings, 60000); // Refresh every 60s
     return () => clearInterval(interval);
   }, []);
 
@@ -39,7 +77,7 @@ export default function Standings() {
       transition={{ duration: 0.6 }}
       className="max-w-5xl mx-auto mt-12 p-6 bg-[#0f172a]/80 text-white rounded-3xl shadow-2xl border border-gray-700"
     >
-      {/* Title */}
+      {/* Title Section */}
       <div className="flex flex-col items-center mb-6">
         <motion.img
           src="/images/Gallery/superLeagueLogo.png"
@@ -49,7 +87,6 @@ export default function Standings() {
           transition={{ duration: 0.6 }}
           className="w-64 md:w-80 mb-4 drop-shadow-[0_0_20px_rgba(255,165,0,0.4)]"
         />
-
         <motion.h1
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +95,6 @@ export default function Standings() {
         >
           League Standings
         </motion.h1>
-
         <p className="text-gray-400 text-sm mt-2 italic">
           Live Updated Rankings •{" "}
           {lastUpdated && (
@@ -67,7 +103,6 @@ export default function Standings() {
             </span>
           )}
         </p>
-
         <button
           onClick={fetchStandings}
           className="mt-4 px-4 py-2 rounded-full bg-gradient-to-r from-orange-600 to-yellow-400 hover:from-orange-500 hover:to-yellow-300 text-white text-sm font-semibold transition shadow-md"
@@ -76,7 +111,7 @@ export default function Standings() {
         </button>
       </div>
 
-      {/* Table */}
+      {/* Standings Table */}
       <div className="overflow-x-auto rounded-2xl shadow-inner border border-gray-700 backdrop-blur-sm">
         <table className="w-full border-collapse text-sm md:text-base">
           <thead>
@@ -92,15 +127,13 @@ export default function Standings() {
               <th className="p-3 text-center">Pts</th>
             </tr>
           </thead>
-
           <tbody>
             {teams.map((team, i) => {
               const isMalappuram =
-                team.name.toLowerCase().includes("malappuram");
-
+                team.name?.toLowerCase().includes("malappuram");
               return (
                 <motion.tr
-                  key={team.position}
+                  key={i}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05 }}
@@ -115,7 +148,7 @@ export default function Standings() {
                   </td>
                   <td className="p-3 flex items-center gap-3">
                     <img
-                      src={`https://superleaguekerala.com/${team.logo}`}
+                      src={`https://superleaguekerala.com${team.logo}`}
                       alt={team.name}
                       className={`w-8 h-8 rounded-full ${
                         isMalappuram

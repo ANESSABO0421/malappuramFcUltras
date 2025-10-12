@@ -24,7 +24,7 @@ const Home = () => {
         <Hero />
         <About />
         <Standings/>
-        <LastMalappuramMatch/>
+        {/* <LastMalappuramMatch/> */}
         <Gallery />
         <VideoGallery/>
         <Sponsors/>

@@ -9,7 +9,7 @@ export default function LastMalappuramMatch() {
   useEffect(() => {
     const fetchMatchData = async () => {
       try {
-        const res = await fetch("https://backendmfcultras.onrender.com/api/malappuram-last");
+        const res = await fetch("http://localhost:5000/api/malappuram-last");
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
         const data = await res.json();
