@@ -124,8 +124,6 @@
 //   console.log(`⚽ Server running locally at http://localhost:${PORT}`);
 // });
 
-
-
 // index.js
 import express from "express";
 import dotenv from "dotenv";

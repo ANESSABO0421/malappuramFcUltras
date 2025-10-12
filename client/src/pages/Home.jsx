@@ -23,7 +23,7 @@ const Home = () => {
         <Navbar />
         <Hero />
         <About />
-        <Standings/>
+        {/* <Standings/> */}
         {/* <LastMalappuramMatch/> */}
         <Gallery />
         <VideoGallery/>
