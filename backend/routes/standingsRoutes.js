@@ -22,15 +22,14 @@ const upload = multer({ storage });
 // --- ROUTES ---
 
 // GET all standings
-router.get("/", async (req, res) => {
+router.get("/getstanding", async (req, res) => {
   try {
-    const standings = await Standing.find().sort({ points: -1 });
+    const standings = await Standing.find().sort({ points: -1, gd: -1 });
     res.json(standings);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
-
 // POST new team (with logo)
 router.post("/standing", upload.single("logo"), async (req, res) => {
   try {

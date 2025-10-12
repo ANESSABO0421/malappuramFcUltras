@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 export default function MyStandings() {
   const [teams, setTeams] = useState([]);
@@ -9,48 +10,34 @@ export default function MyStandings() {
   const fetchStandings = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/standings");
-      const data = await res.json();
-      console.log(data)
+      const res = await axios.get(
+        "http://localhost:5000/api/admin/getstanding"
+      );
+      const data = res.data;
+      console.log(data);
 
-      // Ensure correct format
-      if (!data || !Array.isArray(data.standings)) {
+      if (!data || !Array.isArray(data)) {
         throw new Error("Invalid data format");
       }
 
-      // Transform API data to match frontend structure
-      const formatted = data.standings.map((team) => ({
-        name: team.Clubs,
-        logo: team.Club_logo,
-        shortName: team.short_name,
-        played: team.ALL.Played,
-        won: team.ALL.Won,
-        draw: team.ALL.Draw,
-        lost: team.ALL.Lost,
-        gf: team.ALL.SF, // Goals For
-        ga: team.ALL.SG, // Goals Against
-        gd: team.ALL.GD, // Goal Difference
-        points: team.ALL.Points,
-        last5: team.ALL.Last5,
+      // Transform if your backend keys are different
+      const formatted = data.map((team) => ({
+        name: team.club,
+        logo: team.logo,
+        played: team.played,
+        won: team.won,
+        draw: team.draw,
+        lost: team.lost,
+        gf: team.gf,
+        ga: team.ga,
+        gd: team.gd,
+        points: team.points,
       }));
 
-      // 🧮 Sort by Points → GD → GF (descending)
-      const sorted = formatted.sort((a, b) => {
-        if (b.points !== a.points) return b.points - a.points;
-        if (b.gd !== a.gd) return b.gd - a.gd;
-        return b.gf - a.gf;
-      });
-
-      // Assign proper positions after sorting
-      const ranked = sorted.map((team, index) => ({
-        ...team,
-        position: index + 1,
-      }));
-
-      setTeams(ranked);
+      setTeams(formatted);
       setLastUpdated(new Date().toLocaleTimeString());
     } catch (err) {
-      console.error("Error fetching data:", err);
+      console.error("Error fetching standings:", err);
     } finally {
       setLoading(false);
     }
@@ -58,7 +45,7 @@ export default function MyStandings() {
 
   useEffect(() => {
     fetchStandings();
-    const interval = setInterval(fetchStandings, 60000); // Refresh every 60s
+    const interval = setInterval(fetchStandings);
     return () => clearInterval(interval);
   }, []);
 
@@ -129,8 +116,9 @@ export default function MyStandings() {
           </thead>
           <tbody>
             {teams.map((team, i) => {
-              const isMalappuram =
-                team.name?.toLowerCase().includes("malappuram");
+              const isMalappuram = team.name
+                ?.toLowerCase()
+                .includes("malappuram");
               return (
                 <motion.tr
                   key={i}
@@ -143,19 +131,14 @@ export default function MyStandings() {
                       : "odd:bg-gray-800/60 even:bg-gray-900/40 hover:bg-gray-700/70"
                   } transition`}
                 >
-                  <td className="p-3 font-bold text-gray-300">
-                    {team.position}
-                  </td>
+                  <td className="p-3 font-bold text-gray-300">{i + 1}</td>
                   <td className="p-3 flex items-center gap-3">
                     <img
-                      src={`https://superleaguekerala.com${team.logo}`}
+                      src={`http://localhost:5000${team.logo}`} // ✅ use backend URL + logo path
                       alt={team.name}
-                      className={`w-8 h-8 rounded-full ${
-                        isMalappuram
-                          ? "ring-4 ring-orange-400"
-                          : "ring-2 ring-gray-600"
-                      }`}
+                      className="w-8 h-8 rounded-full border border-gray-600 object-cover"
                     />
+
                     <span
                       className={`font-semibold ${
                         isMalappuram
