@@ -45,8 +45,6 @@ export default function MyStandings() {
 
   useEffect(() => {
     fetchStandings();
-    const interval = setInterval(fetchStandings);
-    return () => clearInterval(interval);
   }, []);
 
   if (loading)
