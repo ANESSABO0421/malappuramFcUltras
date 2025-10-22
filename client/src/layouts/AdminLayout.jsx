@@ -13,6 +13,7 @@ const AdminLayout = () => {
               <Link to="/admin" className="hover:text-blue-400">Dashboard</Link>
               <Link to="/admin/teams" className="hover:text-blue-400">Teams</Link>
               <Link to="/admin/matches" className="hover:text-blue-400">Matches</Link>
+              <Link to="/admin/latest" className="hover:text-blue-400">Add latest Match</Link>
               <Link to="/" className="hover:text-blue-400">Back to Site</Link>
             </nav>
           </div>

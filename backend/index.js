@@ -133,6 +133,7 @@ import standingsRoutes from "./routes/standingsRoutes.js";
 import router from "./routes/standingsRoutes.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import matchRouter from "./routes/matchRoute.js";
 
 dotenv.config();
 
@@ -145,12 +146,14 @@ const __dirname = path.dirname(__filename);
 app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Connect to DB
 connectDB();
 
 // Routes
 app.use("/api/admin", router);
+app.use("/api/match", matchRouter);
 
 // Start server
 const PORT = process.env.PORT || 5000;
