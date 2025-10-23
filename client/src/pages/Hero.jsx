@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const images = [
-  "/images/bg1.jpeg",
-  "/images/bg2.jpeg",
-  "/images/bg3.jpeg",
+  "/images/img1.jpg",
+  "/images/img2.jpg",
+  "/images/img3.jpg",
   "/images/tifo.jpg",
 ];
 
@@ -52,7 +53,7 @@ const Hero = () => {
             className="absolute inset-0 w-full h-full object-cover object-center"
             draggable="false"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/80" />
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/80" /> */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/40" />
         </motion.div>
       </AnimatePresence>
@@ -103,7 +104,7 @@ const Hero = () => {
               ULTRAS
             </span>
             <motion.span
-              className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300"
+              className="block  text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
@@ -114,12 +115,12 @@ const Hero = () => {
 
           {/* Tagline */}
           <motion.p
-            className="text-lg sm:text-2xl text-white/90 font-medium mb-10"
+            className="text-lg sm:text-2xl  text-white/90 italic font-bold   mb-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1 }}
           >
-            THE HEARTBEAT OF FOOTBALL IN MALAPPURAM
+            The Heartbeat of <span className="text-orange-400">Malappuram FC</span>
           </motion.p>
 
           {/* Buttons */}
@@ -129,16 +130,19 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.3 }}
           >
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 0 3px rgba(245,158,11,0.5)",
-              }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all text-lg"
-            >
-              JOIN THE ARMY
-            </motion.button>
+            <Link to="https://chat.whatsapp.com/BUrboLPViNw8VBLvI0AoBy?mode=wwt">
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 0 0 3px rgba(245,158,11,0.5)",
+                }}
+                whileTap={{ scale: 0.97 }}
+                className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all text-lg"
+              >
+                JOIN THE ARMY
+              </motion.button>
+            </Link>
+
             <motion.button
               whileHover={{
                 scale: 1.05,

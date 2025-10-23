@@ -51,7 +51,7 @@ const LastMalappuramMatch = () => {
       </div>
 
       {/* 🏆 LAST MATCH SPOTLIGHT - Ticket Style */}
-      <section className="relative z-10">
+      <section className="relative z-10" id="Last-Match">
         <motion.div
           className="flex items-center justify-center gap-3 mb-10"
           initial={{ opacity: 0, y: -20 }}

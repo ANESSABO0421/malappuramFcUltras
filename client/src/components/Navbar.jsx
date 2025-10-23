@@ -8,6 +8,8 @@ const navLinks = [
   { id: "Hero", label: "Home" },
   { id: "about", label: "About" },
   { id: "Gallery", label: "Gallery" },
+  // { id: "Standings", label: "Standings" },
+  // { id: "Last-Match", label: "Upcoming-Match" },
 ];
 
 const Navbar = () => {

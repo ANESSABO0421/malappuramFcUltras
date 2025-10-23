@@ -2,10 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const sponsors = [
-  { name: "Ajmi", img: "/images/Gallery/Ajmi.png" },
-  { name: "edRoot", img: "/images/Gallery/edRoot.png" },
   { name: "Kalliyath", img: "/images/Gallery/Kalliyath.png" },
   { name: "Roadmate", img: "/images/Gallery/Roadmate.png" },
+
+  { name: "Ajmi", img: "/images/Gallery/Ajmi.png" },
+  { name: "edRoot", img: "/images/Gallery/edRoot.png" },
 ];
 
 const Sponsors = () => {

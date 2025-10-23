@@ -52,7 +52,7 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex justify-center md:justify-start flex-wrap gap-6 mt-8">
-            {["Home", "Players", "Matches", "Gallery", "Contact"].map(
+            {["Home", "Matches", "Gallery"].map(
               (link) => (
                 <motion.a
                   key={link}
